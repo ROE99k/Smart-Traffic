@@ -14,7 +14,7 @@ CONFIDENCE_THRESHOLD = 0.5
 video_sources = {
     "north": "c:/Users/Acer/Videos/Recording 2025-06-09 105131.mp4",
     "south": "c:/Users/Acer/Videos/Recording 2025-06-09 110004.mp4",
-    "east":  "c:/Users/Acer/Videos/Recording 2025-06-09 110322.mp4",
+    "east":  "c:/Users/Acer/Videos/Recording 2025-06-10 131013.mp4",
     "west":  "c:/Users/Acer/Videos/Recording 2025-06-09 110635.mp4"
 }
 

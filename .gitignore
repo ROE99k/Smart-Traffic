@@ -7,15 +7,16 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependency directories
+node_modules/
+dist/
+dist-ssr/
 *.local
 
 # Editor directories and files
-.vscode/*
+.vscode/
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
@@ -23,8 +24,44 @@ dist-ssr
 *.sln
 *.sw?
 
-# Ignore environment variables
- .env
-*.json
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+.env
+.venv/
+venv/
+ENV/
+env/
+*.sqlite3
+
+# Ignore all JSON files by default
+*.json
+
+# But keep these specific JSON files tracked
+!firebase.json
+!gcloud-key.json
+!firecore-key.json
+!.google-credentials.json
+
+# Environment & secrets
+.env
+*.env
+*.key
+*.pem
+*.p12
+*.crt
+
+# Flask
+instance/
+*.db
+
+# System files
+.DS_Store
+Thumbs.db
