@@ -4,13 +4,13 @@ import requests
 import time
 from ultralytics import YOLO
 
-# Load YOLOv8 model (you can change to yolov8s.pt or your custom .pt)
+# Load YOLOv8 model
 model = YOLO("yolov8n.pt")
 
 # Confidence threshold
 CONFIDENCE_THRESHOLD = 0.5
 
-# Video paths (update paths as needed)
+# Video sources
 video_sources = {
     "north": "c:/Users/Acer/Videos/Recording 2025-06-09 105131.mp4",
     "south": "c:/Users/Acer/Videos/Recording 2025-06-09 110004.mp4",
@@ -18,7 +18,7 @@ video_sources = {
     "west":  "c:/Users/Acer/Videos/Recording 2025-06-09 110635.mp4"
 }
 
-# Flask backend endpoint
+# Updated Flask backend URL
 backend_url = "http://127.0.0.1:5000/traffic-signal"
 
 def count_vehicles(frame):
@@ -56,19 +56,19 @@ def process_video(direction, path):
         except Exception as e:
             print(f"[{direction.upper()}] Error sending data: {e}")
 
-        time.sleep(2)  # Delay between frames to simulate real-time detection
+        time.sleep(2)  # Delay between frames
 
     cap.release()
     print(f"[{direction.upper()}] Video processing complete.")
 
-# Create and start a thread for each video direction
+# Start threads for each direction
 threads = []
 for direction, path in video_sources.items():
     t = threading.Thread(target=process_video, args=(direction, path))
     t.start()
     threads.append(t)
 
-# Wait for all threads to finish
+# Wait for all threads to complete
 for t in threads:
     t.join()
 
